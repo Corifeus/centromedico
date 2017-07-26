@@ -58,6 +58,24 @@ class pacientesController extends Controller
         ));
     }
 
+    public function pdfAction($id)
+    {
+        $html = "";
+
+        $repository= $this->getDoctrine()->getRepository('PrincipalBundle:pacientes');
+        $paciente = $repository->findOneById($id);        
+        
+        foreach ($paciente->getVisitas() as $key => $value) {
+            $html = $html . "Visita->  " . $value->getFecha()->format("H:i Y-m-d") . "<br>";
+        }
+
+        $pdf = $this->get("white_october.tcpdf")->create('vertical', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        $helpers = $this->get("app.helpers");
+        $helpers->generatePDF($html,$pdf);
+
+    }
+
     /**
      * Finds and displays a paciente entity.
      *
@@ -65,26 +83,6 @@ class pacientesController extends Controller
     public function showAction(pacientes $paciente)
     {
         $deleteForm = $this->createDeleteForm($paciente);
-
-        $html = "";
-
-        foreach ($paciente->getVisitas() as $key => $value) {
-            $html = $html . "Visita->  " . $value->getFecha()->format("H:i Y-m-d") . "<br>";
-        }
-
-        $pdf = $this->get("white_october.tcpdf")->create('vertical', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-        $pdf->SetAuthor('Sistema centro médico');
-        $pdf->SetTitle(('Tus visitas'));
-        $pdf->SetSubject('Centros médicos de valencia');
-        $pdf->setFontSubsetting(true);
-        $pdf->SetFont('helvetica', '', 11, '', true);
-        //$pdf->SetMargins(20,20,40, true);
-        $pdf->AddPage();
-        
-        $filename = 'visitas';
-        
-        $pdf->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = '', $autopadding = true);
-        $pdf->Output($filename.".pdf",'I'); // This will output the PDF as a response directly
 
         return $this->render('pacientes/show.html.twig', array(
             'paciente' => $paciente,

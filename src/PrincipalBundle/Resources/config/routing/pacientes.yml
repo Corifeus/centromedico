@@ -18,6 +18,11 @@ pacientes_edit:
     defaults: { _controller: "PrincipalBundle:pacientes:edit" }
     methods:  [GET, POST]
 
+pacientes_visitas_pdf:
+    path:   /{id}/pdf
+    defaults: { _controller: "PrincipalBundle:pacientes:pdf" }
+    methods:  [GET, POST]
+
 pacientes_delete:
     path:     /{id}/delete
     defaults: { _controller: "PrincipalBundle:pacientes:delete" }

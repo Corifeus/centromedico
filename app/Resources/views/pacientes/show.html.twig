@@ -33,6 +33,9 @@
             <a href="{{ path('pacientes_edit', { 'id': paciente.id }) }}">Edit</a>
         </li>
         <li>
+            <a href="{{ path('pacientes_visitas_pdf', { 'id': paciente.id }) }}">Generar PDF</a>
+        </li>
+        <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
