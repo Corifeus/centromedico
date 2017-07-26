@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Paciente</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ paciente.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ paciente.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ paciente.email }}</td>
+            </tr>
+            <tr>
+                <th>Centro médico</th>
+                <td>{{ paciente.centrosmedicos }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pacientes_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('pacientes_edit', { 'id': paciente.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

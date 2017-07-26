@@ -1,0 +1,24 @@
+pacientes_index:
+    path:     /
+    defaults: { _controller: "PrincipalBundle:pacientes:index" }
+    methods:  GET
+
+pacientes_show:
+    path:     /{id}/show
+    defaults: { _controller: "PrincipalBundle:pacientes:show" }
+    methods:  GET
+
+pacientes_new:
+    path:     /new
+    defaults: { _controller: "PrincipalBundle:pacientes:new" }
+    methods:  [GET, POST]
+
+pacientes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PrincipalBundle:pacientes:edit" }
+    methods:  [GET, POST]
+
+pacientes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PrincipalBundle:pacientes:delete" }
+    methods:  DELETE

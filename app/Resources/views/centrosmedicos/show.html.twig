@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Centrosmedico</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ centrosmedico.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ centrosmedico.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ centrosmedico.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('centrosmedicos_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('centrosmedicos_edit', { 'id': centrosmedico.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

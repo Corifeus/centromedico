@@ -1,0 +1,24 @@
+medicos_index:
+    path:     /
+    defaults: { _controller: "PrincipalBundle:medicos:index" }
+    methods:  GET
+
+medicos_show:
+    path:     /{id}/show
+    defaults: { _controller: "PrincipalBundle:medicos:show" }
+    methods:  GET
+
+medicos_new:
+    path:     /new
+    defaults: { _controller: "PrincipalBundle:medicos:new" }
+    methods:  [GET, POST]
+
+medicos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PrincipalBundle:medicos:edit" }
+    methods:  [GET, POST]
+
+medicos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PrincipalBundle:medicos:delete" }
+    methods:  DELETE

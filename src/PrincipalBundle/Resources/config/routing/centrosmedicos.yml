@@ -1,0 +1,24 @@
+centrosmedicos_index:
+    path:     /
+    defaults: { _controller: "PrincipalBundle:centrosmedicos:index" }
+    methods:  GET
+
+centrosmedicos_show:
+    path:     /{id}/show
+    defaults: { _controller: "PrincipalBundle:centrosmedicos:show" }
+    methods:  GET
+
+centrosmedicos_new:
+    path:     /new
+    defaults: { _controller: "PrincipalBundle:centrosmedicos:new" }
+    methods:  [GET, POST]
+
+centrosmedicos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PrincipalBundle:centrosmedicos:edit" }
+    methods:  [GET, POST]
+
+centrosmedicos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PrincipalBundle:centrosmedicos:delete" }
+    methods:  DELETE

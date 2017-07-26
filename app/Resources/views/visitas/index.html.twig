@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Visitas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Paciente</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for visita in visitas %}
+            <tr>
+                <td><a href="{{ path('visitas_show', { 'id': visita.id }) }}">{{ visita.id }}</a></td>
+                <td>{{ visita.fecha|date }}</td>
+                <td>{{ visita.paciente.nombre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('visitas_show', { 'id': visita.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('visitas_edit', { 'id': visita.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('visitas_new') }}">Create a new visita</a>
+        </li>
+    </ul>
+{% endblock %}

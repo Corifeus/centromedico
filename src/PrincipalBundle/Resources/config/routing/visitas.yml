@@ -1,0 +1,24 @@
+visitas_index:
+    path:     /
+    defaults: { _controller: "PrincipalBundle:visitas:index" }
+    methods:  GET
+
+visitas_show:
+    path:     /{id}/show
+    defaults: { _controller: "PrincipalBundle:visitas:show" }
+    methods:  GET
+
+visitas_new:
+    path:     /new
+    defaults: { _controller: "PrincipalBundle:visitas:new" }
+    methods:  [GET, POST]
+
+visitas_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PrincipalBundle:visitas:edit" }
+    methods:  [GET, POST]
+
+visitas_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PrincipalBundle:visitas:delete" }
+    methods:  DELETE

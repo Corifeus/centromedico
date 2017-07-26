@@ -1,0 +1,19 @@
+principal_centrosmedicos:
+    resource: "@PrincipalBundle/Resources/config/routing/centrosmedicos.yml"
+    prefix:   /centrosmedicos
+
+principal_visitas:
+    resource: "@PrincipalBundle/Resources/config/routing/visitas.yml"
+    prefix:   /visitas
+
+principal_medicos:
+    resource: "@PrincipalBundle/Resources/config/routing/medicos.yml"
+    prefix:   /medicos
+
+principal_pacientes:
+    resource: "@PrincipalBundle/Resources/config/routing/pacientes.yml"
+    prefix:   /pacientes
+
+principal_homepage:
+    path:     /
+    defaults: { _controller: PrincipalBundle:Default:index }
